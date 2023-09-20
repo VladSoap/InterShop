@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
     private static final Logger logger = Logger.getLogger(ProductServiceImpl.class);
     private static final ProductDao productDao = ProductDaoFactory.getProductDao();
 
-    @Override
+
     public void save(Product product) {
         productDao.save(product);
     }
@@ -24,6 +24,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProducts() {
         return productDao.getProducts();
+    }
+
+    @Override
+    public void addProduct(Product product) {
+
     }
 
     @Override
