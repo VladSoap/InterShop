@@ -33,9 +33,8 @@ public class SendEmailTLS {
                     Message.RecipientType.TO,
                     InternetAddress.parse("vladislav.v.k2007@gmail.com")
             );
-            message.setSubject("Testing Gmail TLS");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!");
+            message.setSubject("Homework22");
+            message.setText("Hello World!");
 
             Transport.send(message);
 
