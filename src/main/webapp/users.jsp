@@ -1,33 +1,56 @@
+<%@ page import="ua.ishop.model.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="ua.ishop.kataula.model.User" %>
-<%@ page import="java.io.PrintWriter" %><%--
-  Created by IntelliJ IDEA.
-  User: kipler
-  Date: 06.08.2023
-  Time: 12:49
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.io.PrintWriter" %>
+<%--<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All users</title>
+    <title>All Users</title>
 </head>
 <body>
-<%
-    PrintWriter writer = response.getWriter();
-    writer.write("<table border=1>\n" +
-            "    <tr>\n" +
-            "        <th>Email</th>\n" +
-            "        <th>Password</th>\n" +
-            "    </tr>");
 
-    List<User> userList = (List<User>) request.getAttribute("allUsers");
-    for(User user : userList){
-        writer.write("<tr>");
-        writer.write("<td>" + user.getEmail() + "</td>");
-        writer.write("<td>" + user.getPassword() + "</td>");
-        writer.write("</tr>");
-    }
-%>
+<%--<%--%>
+<%--    PrintWriter printWriter = response.getWriter();--%>
+<%--    printWriter.write("<table border=1>\n" +--%>
+<%--            "    <tr>\n" +--%>
+<%--            "        <th>Email</th>\n" +--%>
+<%--            "        <th>Password</th>\n" +--%>
+<%--            "    </tr>");--%>
+
+<%--     List<User> allUsers = (List<User>) request.getAttribute("allUsers");--%>
+<%--     for (User user: allUsers) {--%>
+<%--         printWriter.write("<tr>");--%>
+<%--         printWriter.write("<td>" + user.getEmail() + "</td>");--%>
+<%--         printWriter.write("<td>" + user.getPassword() + "</td>");--%>
+<%--         printWriter.write("</tr>");--%>
+<%--     }--%>
+
+<%--%>--%>
+
+
+<%--<table border="1">--%>
+<%--<c:forEach items="${allUsers}" var="element">--%>
+<%--    <tr>--%>
+<%--        <td><c:out value="${element.id}"/></td>--%>
+<%--        <td><c:out value="${element.email}"/></td>--%>
+<%--        <td><c:out value="${element.password}"/></td>--%>
+<%--    </tr>--%>
+<%--</c:forEach>--%>
+<%--</table>--%>
+
+
+<table border="1">
+    <c:forEach items="${allUsers}" var="element">
+        <tr>
+            <td>${element.userId}</td>
+            <td>${element.email}</td>
+            <td>${element.passwordNotEncoded}</td>
+            <td><a href="/users/update?userId=${element.userId}">edit</a></td>
+            <td><a href="/users/delete?userId=${element.userId}">delete</a></td>
+        </tr>
+    </c:forEach>
+</table>
+
 </body>
 </html>

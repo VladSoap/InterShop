@@ -1,47 +1,48 @@
-package ua.ishop.kataula.controller;
+package ua.ishop.controller;
+import org.apache.log4j.Logger;
+import ua.ishop.factory.UserServiceFactory;
+import ua.ishop.model.User;
+import ua.ishop.service.UserService;
+import ua.ishop.service.imp.UserServiceImpl;
 
-import ua.ishop.kataula.model.User;
-import ua.ishop.kataula.service.UserService;
-import ua.ishop.kataula.service.impl.UserServiceImpl;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class UserRegistrationServlet extends HttpServlet {
 
-    private static final UserService userService = new UserServiceImpl();
+    private static final Logger logger = Logger.getLogger(UserRegistrationServlet.class);
+
+    private static final UserService userService = UserServiceFactory.getUserService();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("register.jsp").forward(req, resp);
-        HttpSession session = req.getSession();
-        Integer count = (Integer) session.getAttribute("count");
-        if (count == null){
-            session.setAttribute("count",1);
-        } else{
-            session.setAttribute("count",count + 1);
-        }
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("register.jsp");
+        requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String email =  req.getParameter("email");
+        String password =  req.getParameter("password");
         String rPassword = req.getParameter("rpassword");
+
 
         if (password.equals(rPassword)) {
             User user = new User(email, password);
+//            Storage.addUser(user);
             userService.addUser(user);
             resp.sendRedirect("/");
-            System.out.println("Мы зарегестрировались");
-        }else {
+
+            System.out.println("Мы зарегистрировались!!!!!!");
+        } else {
             req.setAttribute("error", "Your password not correct");
             req.getRequestDispatcher("register.jsp").forward(req, resp);
         }
-
     }
+
 }
