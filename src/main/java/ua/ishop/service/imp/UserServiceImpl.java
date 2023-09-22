@@ -1,6 +1,6 @@
 package ua.ishop.service.imp;
 
-
+import org.apache.log4j.Logger;
 import ua.ishop.dao.UserDao;
 import ua.ishop.factory.UserDaoFactory;
 import ua.ishop.model.User;
@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class UserServiceImpl implements UserService {
-
+    private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
     private static final UserDao userDao = UserDaoFactory.getUserDao();
 
     @Override

@@ -1,6 +1,6 @@
 package ua.ishop.dao.impl;
 
-
+import org.apache.log4j.Logger;
 import ua.ishop.dao.ProductDao;
 import ua.ishop.model.Product;
 import ua.ishop.util.DbConnector;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
-
+    private static final Logger logger = Logger.getLogger(ProductDaoImpl.class);
 
     @Override
     public void save(Product product) {

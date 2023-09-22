@@ -1,6 +1,7 @@
 package ua.ishop.factory;
 
 import org.apache.log4j.Logger;
+
 import ua.ishop.dao.ProductDao;
 import ua.ishop.dao.impl.ProductDaoImpl;
 
