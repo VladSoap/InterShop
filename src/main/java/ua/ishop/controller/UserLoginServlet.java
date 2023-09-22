@@ -1,6 +1,6 @@
 package ua.ishop.controller;
 
-import org.apache.log4j.Logger;
+
 import ua.ishop.factory.UserServiceFactory;
 import ua.ishop.model.Role;
 import ua.ishop.model.User;
@@ -19,7 +19,7 @@ import java.util.Objects;
 @WebServlet("/login")
 public class UserLoginServlet extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(UserLoginServlet.class);
+
 
     private static final UserService userService = UserServiceFactory.getUserService();
 
