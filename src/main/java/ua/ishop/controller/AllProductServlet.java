@@ -1,6 +1,6 @@
 package ua.ishop.controller;
 
-
+import org.apache.log4j.Logger;
 import ua.ishop.factory.ProductServiceFactory;
 import ua.ishop.model.Product;
 import ua.ishop.service.ProductService;
@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet("/product")
 public class AllProductServlet extends HttpServlet {
 
-
+        private static final Logger logger = Logger.getLogger(ua.ishop.controller.AllProductsServlet.class);
         private static final ProductService productService = ProductServiceFactory.getProductService();
 
         @Override
