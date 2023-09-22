@@ -1,6 +1,5 @@
 package ua.ishop.controller;
 
-import org.apache.log4j.Logger;
 import ua.ishop.factory.UserServiceFactory;
 import ua.ishop.model.User;
 import ua.ishop.service.UserService;
@@ -16,7 +15,7 @@ import java.util.List;
 @WebServlet("/admin/users")
 public class AllUserServlet extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(AllUserServlet.class);
+
     private static final UserService userService = UserServiceFactory.getUserService();
 
     @Override

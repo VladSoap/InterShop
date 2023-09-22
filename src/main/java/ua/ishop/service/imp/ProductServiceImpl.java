@@ -1,6 +1,6 @@
 package ua.ishop.service.imp;
 
-import org.apache.log4j.Logger;
+
 import ua.ishop.dao.ProductDao;
 import ua.ishop.dao.UserDao;
 import ua.ishop.factory.ProductDaoFactory;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
 
-    private static final Logger logger = Logger.getLogger(ProductServiceImpl.class);
+
     private static final ProductDao productDao = ProductDaoFactory.getProductDao();
 
 

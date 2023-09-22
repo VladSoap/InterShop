@@ -1,6 +1,6 @@
 package ua.ishop.controller;
 
-import org.apache.log4j.Logger;
+
 import ua.ishop.factory.UserServiceFactory;
 import ua.ishop.service.UserService;
 
@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/users/delete")
 public class DeleteUserServlet extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(DeleteUserServlet.class);
+
     private static final UserService userService = UserServiceFactory.getUserService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

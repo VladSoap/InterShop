@@ -1,5 +1,5 @@
 package ua.ishop.controller;
-import org.apache.log4j.Logger;
+
 import ua.ishop.factory.UserServiceFactory;
 import ua.ishop.model.User;
 import ua.ishop.service.UserService;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class UserRegistrationServlet extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(UserRegistrationServlet.class);
+
 
     private static final UserService userService = UserServiceFactory.getUserService();
 

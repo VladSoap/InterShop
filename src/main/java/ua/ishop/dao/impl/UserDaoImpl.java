@@ -1,6 +1,5 @@
 package ua.ishop.dao.impl;
 
-import org.apache.log4j.Logger;
 import ua.ishop.dao.UserDao;
 import ua.ishop.db.Storage;
 import ua.ishop.model.User;
@@ -11,7 +10,7 @@ import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
-    private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
+
 
     @Override
     public void save(User user) {

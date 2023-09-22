@@ -2,7 +2,7 @@ package ua.ishop.factory;
 
 import org.apache.log4j.Logger;
 import ua.ishop.dao.ProductDao;
-import ua.ishop.dao.impl.ProductDaoJdbcImpl;
+import ua.ishop.dao.impl.ProductDaoImpl;
 
 public class ProductDaoFactory {
     private static final Logger logger = Logger.getLogger(ProductDaoFactory.class);
@@ -14,7 +14,7 @@ public class ProductDaoFactory {
 
     public static synchronized ProductDao getProductDao() {
         if (instance == null) {
-            instance = new ProductDaoJdbcImpl();
+            instance = new ProductDaoImpl();
         }
         return instance;
     }
